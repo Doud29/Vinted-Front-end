@@ -1,0 +1,276 @@
+//--------------------------------------------------------------------------------//
+//-------------------------------------- Header-----------------------------------//
+//--------------------------------------------------------------------------------//
+
+.header-app {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .searchbar {
+    height: 50%;
+    width: 30%;
+    border: 1px solid #0ab1ba;
+    border-radius: 5px;
+    color: #0ab1ba;
+  }
+
+  .logo {
+    height: 70%;
+    width: 10%;
+    object-fit: contain;
+  }
+  .logo img {
+    height: 90%;
+    width: 100%;
+  }
+
+  .incription {
+    border: 1px solid #0ab1ba;
+    height: 50%;
+    width: 100px;
+    border-radius: 3px;
+    color: #0ab1ba;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .connexion {
+    border: 1px solid #0ab1ba;
+    height: 50%;
+    width: 100px;
+    border-radius: 3px;
+    color: #0ab1ba;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vendre {
+    border: 1px solid #0ab1ba;
+    height: 50%;
+    width: 150px;
+    border-radius: 3px;
+    color: white;
+    background-color: #0ab1ba;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//--------------------------------------------------------------------------------//
+//-------------------------------------- Main photo-------------------------------//
+//--------------------------------------------------------------------------------//
+
+.photo-presentation {
+  width: 92.5%;
+  height: 450px;
+  margin: auto;
+  object-fit: fill;
+  position: relative;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+  .tri {
+    position: absolute;
+    z-index: 2;
+    height: 250px;
+    width: 250px;
+    top: 30px;
+    left: 40px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #0ab1ba;
+  }
+}
+
+//--------------------------------------------------------------------------------//
+//-------------------------------------- Offers ---------------------------------//
+//--------------------------------------------------------------------------------//
+
+.description-offers {
+  width: 95%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px;
+  margin: auto;
+
+  .products {
+    margin: 10px auto;
+    width: 208px;
+    border-radius: 5px;
+    height: 320px;
+
+    .avatar {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      .photoprofile {
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 5px;
+        width: 30px;
+        border: 1px solid #0ab1ba;
+        img {
+          object-fit: contain;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+        }
+      }
+      .name {
+        width: auto;
+      }
+    }
+
+    .produitachat {
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-left: 5px;
+      padding-top: 5px;
+    }
+    .photo {
+      width: 100%;
+      height: 60%;
+
+      .photo-produit {
+        height: 100%;
+        object-fit: fill;
+        width: 100%;
+      }
+    }
+  }
+}
+
+//--------------------------------------------------------------------------------//
+//-------------------------------------- page description-offre ---------------------------------//
+//--------------------------------------------------------------------------------//
+
+.description-offre {
+  background-color: #ebedee;
+  height: 550px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .photoproduit {
+    margin-top: 10px;
+    top: 50px;
+    width: 350px;
+    height: 550px;
+    left: 40px;
+    img {
+      width: 350px;
+      height: 550px;
+      object-fit: fill;
+      border-radius: 5px;
+    }
+  }
+
+  .descriptionoffre {
+    top: 50px;
+    width: 400px;
+    height: 550px;
+    right: 30px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    .prix {
+      height: 30px;
+
+      width: auto;
+      font-weight: 700;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+    .produitsdetails {
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      border-bottom: 1px solid #ebedee;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+    }
+    .produitsdetails {
+      line-height: 20px;
+      text-align: justify;
+      color: #717171;
+    }
+    .profile {
+      margin-top: 25px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: auto;
+      .photoprofile {
+        height: 30px;
+        border-radius: 50%;
+        width: 30px;
+        margin-right: 30px;
+        img {
+          object-fit: fill;
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+        }
+      }
+    }
+    .acheter {
+      height: 40px;
+      width: 300px;
+      margin: auto;
+      margin-top: 25px;
+      text-align: center;
+      background-color: #0ab1ba;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+.offer-footer {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//--------------------------------------------------------------------------------//
+//-------------------------------------- Formulaire ---------------------------------//
+//--------------------------------------------------------------------------------//
+
+.signup {
+  .formulaire {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 250px;
+    height: 450px;
+    margin: auto;
+    border: 1px solid black;
+    .caseacocher {
+      border: black 1px solid;
+      height: 15px !important ;
+      width: 40px;
+      background-color: #0ab1ba;
+      border: 3px solid black;
+    }
+  }
+}
