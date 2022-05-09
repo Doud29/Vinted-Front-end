@@ -38,26 +38,31 @@ const Header = ({ token, setUser }) => {
               </div>
             </Link>
 
-            <div className="vendre">
+            <div className="vendre" style={{ opacity: 0.4 }}>
               {" "}
               <span>Vends des articles</span>{" "}
             </div>
           </div>
         ) : (
-          <div>
+          <div className="connecter">
             {" "}
             <div
               className="connexion"
               onClick={() => {
                 setUser(null);
-                // navigate("/");
+                navigate("/");
               }}
             >
               <span>Se déconnecter</span>
-            </div>
-            <div className="vendre">
-              {" "}
-              <span>Vends des articles</span>{" "}
+            </div>{" "}
+            <div
+              className="vendre"
+              onClick={() => {
+                // const = blblb;
+                navigate("/Publish");
+              }}
+            >
+              <p>Vends des articles</p>{" "}
             </div>
           </div>
         )}

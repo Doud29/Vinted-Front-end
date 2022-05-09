@@ -85,7 +85,7 @@ const Home = () => {
                     {item.product_details[1].TAILLE}
                   </p>
                   <p style={{ marginTop: 3 }}>
-                    {item.product_details[0].MARQUE.toLowerCase()}
+                    {item.product_details[0].MARQUE}
                   </p>
                 </div>
               </div>

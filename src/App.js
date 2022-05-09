@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 import Cookies from "js-cookie";
 import { useState } from "react";
 
@@ -58,6 +59,7 @@ function App() {
           {/* ID :  la route /product s'attend à recevoir en params un iD. Cela signifique que la route doit être capable de lui en envoyer un */}
           <Route path="/Signup" element={<Signup setUser={setUser} />} />
           <Route path="/Login" element={<Login setUser={setUser} />} />
+          <Route path="/Publish" element={<Publish token={token} />} />
         </Routes>
       </Router>
     </div>
