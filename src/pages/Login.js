@@ -1,54 +1,58 @@
-import Header from "../Composent/Header";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-  /* ----------------------------------------------------------------------------- */
-  /*-----------------------------------// States //--------------------------------*/
-  /* ---------------------------------------------------------------------------- */
+const Login = ({ setUser }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
+  const handleLogin = async (event) => {
+    try {
+      event.preventDefault();
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        {
+          email: email,
+          password: password,
+        }
+      );
 
-  //   const response = await axios.post(
-  //     "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-
-  //     { username: name, email: email, password: password, optin: optin }
-  //   );
-
-  //   navigate("/Login");
-  //   // Pour empêcher le navigateur de changer de page lors de la soumission du formulaire
-  //   console.log(email, password, name);
-  // };
+      console.log(response.data);
+      if (response.data.token) {
+        setUser(response.data.token);
+        // redirection
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
-    <div>
-      <Header />
-      <div className="login">
-        {/* <form className="formulaire" onSubmit={handleSubmit}>
-          <input
-            placeholder="Votre nom"
-            type="text"
-            value={name}
-            onChange={(event) => {
-              const value = event.target.value;
-              setName(value);
-            }}
-          />
-
-          <input
-            placeholder="email"
-            type="email"
-            value={email}
-            onChange={(event) => {
-              const value = event.target.value;
-              setEmail(value);
-            }}
-          />
-
-          <input type="submit" value="Submit" />
-        </form> */}
-      </div>
+    <div className="signup">
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
+        <input
+          className="form"
+          value={email}
+          placeholder="email"
+          type="email"
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <br />
+        <input
+          className="form"
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+        <br />
+        <input className="boutton" type="submit" value="Se connecter" />
+        <br />
+      </form>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Composent/Header";
 // on navigue de page en pages grace à des liens, pour cela il faut importer Link de react-router. Cela nous permettra de créer nos liens
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -32,11 +31,20 @@ const Home = () => {
     <h1>En cours de chargement...</h1>
   ) : (
     <div>
-      <Header />
-
       <div className="photo-presentation">
         <img src={mainphoto} alt="" />
-        <div className="tri"></div>
+        <div className="tri">
+          <span>
+            Prêt à faire <br /> du tri dans vos placards?
+          </span>
+          <div className="blocvendre">
+            <div className="vendre">
+              {" "}
+              <p>Vends maintenant</p> <br />
+            </div>
+            <a href="">Comment ça marche</a>
+          </div>
+        </div>
       </div>
 
       <div className="description-offers">
@@ -45,10 +53,11 @@ const Home = () => {
 
           return (
             <Link
+              key={index}
               style={{ textDecoration: "none", color: "grey" }}
               to={`/product/${item._id}`}
             >
-              <div key={index} className="products">
+              <div className="products">
                 <div className="avatar">
                   <div className="photoprofile">
                     {" "}
@@ -95,15 +104,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// <div className="products">
-//   {item.product_name.map((name, index) => {
-//     return (
-//       <div key={index} className="details-products">
-//         <div>{name.MARQUE}</div>
-//         <div>{details.TAILLE}</div>
-//         <div>{details.COULEUR}</div>
-//       </div>
-//     );
-//   })}
-// </div>

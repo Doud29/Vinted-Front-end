@@ -9,6 +9,47 @@
   align-items: center;
   justify-content: space-around;
 
+  .connecter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    height: 50px;
+    .incription {
+      border: 1px solid #0ab1ba;
+      height: 70%;
+      width: 100px;
+      border-radius: 3px;
+      color: #0ab1ba;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .connexion {
+      border: 1px solid #0ab1ba;
+      height: 70%;
+      width: 100px;
+      border-radius: 3px;
+      color: #0ab1ba;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vendre {
+      border: 1px solid #0ab1ba;
+      height: 70%;
+      width: 150px;
+      border-radius: 3px;
+      color: white;
+      background-color: #0ab1ba;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   .searchbar {
     height: 50%;
     width: 30%;
@@ -25,39 +66,6 @@
   .logo img {
     height: 90%;
     width: 100%;
-  }
-
-  .incription {
-    border: 1px solid #0ab1ba;
-    height: 50%;
-    width: 100px;
-    border-radius: 3px;
-    color: #0ab1ba;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .connexion {
-    border: 1px solid #0ab1ba;
-    height: 50%;
-    width: 100px;
-    border-radius: 3px;
-    color: #0ab1ba;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .vendre {
-    border: 1px solid #0ab1ba;
-    height: 50%;
-    width: 150px;
-    border-radius: 3px;
-    color: white;
-    background-color: #0ab1ba;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }
 
@@ -78,13 +86,48 @@
   .tri {
     position: absolute;
     z-index: 2;
-    height: 250px;
-    width: 250px;
+    height: 300px;
+    width: 350px;
     top: 30px;
     left: 40px;
     background-color: white;
     border-radius: 5px;
-    border: 1px solid #0ab1ba;
+    padding-left: 30px;
+    padding-top: 39px;
+    padding-right: 30px;
+    span {
+      font-size: 34px;
+      line-height: 42.5px;
+      margin-right: 55px;
+    }
+    .blocvendre {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .vendre {
+        margin-top: 15px;
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        background-color: #0ab1ba;
+        border: none;
+        border-radius: 2px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      a {
+        text-decoration: none;
+        color: #0ab1ba;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -253,24 +296,60 @@
 }
 
 //--------------------------------------------------------------------------------//
-//-------------------------------------- Formulaire ---------------------------------//
+//----------------------- Formulaire Login et signUP------------------------------//
 //--------------------------------------------------------------------------------//
 
 .signup {
-  .formulaire {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin: auto;
+  h1 {
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #0ab1ba;
+  }
+  .form {
     width: 250px;
-    height: 450px;
-    margin: auto;
-    border: 1px solid black;
-    .caseacocher {
-      border: black 1px solid;
-      height: 15px !important ;
-      width: 40px;
-      background-color: #0ab1ba;
-      border: 3px solid black;
+    height: 40px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 2px;
+    border-bottom: 1px solid rgb(200, 66, 66);
+    margin-bottom: 20px;
+  }
+
+  .boutton {
+    width: 250px;
+    height: 40px;
+    color: white;
+    background-color: #0ab1ba;
+    border: none;
+    border: none;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .text {
+    width: 250px;
+    text-overflow: clip;
+    text-align: justify;
+    margin-bottom: 20px;
+    margin: 20px;
+    .newsletter {
+      font-size: 15px;
+      color: black;
+      font-size: 600;
+    }
+    .condition-utilisation {
+      font-size: 10px;
+      color: gray;
+      margin-top: 10px;
     }
   }
 }

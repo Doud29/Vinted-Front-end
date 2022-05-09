@@ -1,31 +1,66 @@
-import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
-const Header = () => {
+import { Link, useNavigate } from "react-router-dom";
+
+const Header = ({ token, setUser }) => {
+  const navigate = useNavigate();
   return (
     <div className="header-app">
-      <Link to="/">
-        <div className="logo">
+      <div className="logo">
+        <Link to="/">
           <img src={logo} alt="" />
-        </div>
-      </Link>
+        </Link>
+      </div>
       <input
         className="searchbar"
         placeholder="What do you want?"
         type="text"
       />
-      <Link to="/Signup" style={{ textDecoration: "none" }}>
-        <div className="incription">
-          <span>S'inscrire</span>
-        </div>
-      </Link>
-      <Link to="/Login" style={{ textDecoration: "none" }}>
-        <div className="connexion">
-          <span>Se connecter</span>
-        </div>
-      </Link>
-      <div className="vendre">
-        {" "}
-        <span>Vends des articles</span>{" "}
+
+      <div>
+        {token === null ? (
+          <div className="connecter">
+            <Link
+              className="incription"
+              to="/Signup"
+              style={{ textDecoration: "none" }}
+            >
+              <div>
+                <span>S'inscrire</span>
+              </div>
+            </Link>
+            <Link
+              className="connexion"
+              to="/Login"
+              style={{ textDecoration: "none" }}
+            >
+              <div>
+                <span>Se connecter</span>
+              </div>
+            </Link>
+
+            <div className="vendre">
+              {" "}
+              <span>Vends des articles</span>{" "}
+            </div>
+          </div>
+        ) : (
+          <div>
+            {" "}
+            <div
+              className="connexion"
+              onClick={() => {
+                setUser(null);
+                // navigate("/");
+              }}
+            >
+              <span>Se déconnecter</span>
+            </div>
+            <div className="vendre">
+              {" "}
+              <span>Vends des articles</span>{" "}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
