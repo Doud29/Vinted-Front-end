@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import mainphoto from "../img/mainphoto.jpg";
-
+// import pp from "../img/pp.jpg";
 const Home = () => {
   /* ----------------------------------------------------------------------------- */
   /*-----------------------------------// States //--------------------------------*/
@@ -49,7 +49,7 @@ const Home = () => {
 
       <div className="description-offers">
         {data.offers.map((item, index) => {
-          // console.log(item.owner.account.avatar.secure_url);
+          console.log(item.owner.account.avatar);
 
           return (
             <Link
@@ -60,11 +60,7 @@ const Home = () => {
               <div className="products">
                 <div className="avatar">
                   <div className="photoprofile">
-                    {" "}
-                    {/* <img
-                      src={item.owner.account.avatar.secure_url}
-                      alt="avatar"
-                    /> */}
+                    {/* <img src={pp} alt="avatar" /> */}
                   </div>
                   <div className="name">{item.owner.account.username}</div>
                 </div>

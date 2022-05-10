@@ -32,7 +32,6 @@ const Product = ({ token }) => {
     fetchData();
   }, []);
 
-  //   toto sera un objet qui contiendra une clé id
   return isLoading ? (
     <h1>En cours de chargement...</h1>
   ) : (

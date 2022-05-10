@@ -4,8 +4,21 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 // import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
+  const location = useLocation();
+  const { title } = location.state;
+  const { price } = location.state;
+  const navigate = useNavigate();
+
+  const Price = Number(price);
+  const fraisProtection = 0.4;
+  const fraisPort = 0.8;
+  let FinalPrice = fraisProtection + fraisPort + Price;
+
+  //   const [isCardOk, setCardOk] = useState(false);
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -21,6 +34,7 @@ const CheckoutForm = () => {
     const stripeResponse = await stripe.createToken(cardElement, {
       name: "L'id de l'acheteur",
     });
+
     console.log(stripeResponse);
     const stripeToken = stripeResponse.token.id;
     // Une fois le token reçu depuis l'API Stripe
@@ -29,25 +43,17 @@ const CheckoutForm = () => {
     const response = await axios.post(
       "https://lereacteur-vinted-api.herokuapp.com/payment",
       {
-        stripeToken,
+        token: stripeToken,
+        title: title,
+        amount: Price,
       }
     );
-    console.log(response.data);
+
     // Si la réponse du serveur est favorable, la transaction a eu lieu
     if (response.data.status === "succeeded") {
       setCompleted(true);
     }
   };
-
-  const location = useLocation();
-  const { title } = location.state;
-  const { price } = location.state;
-
-  const Price = Number(price);
-  const fraisProtection = 0.4;
-  const fraisPort = 0.8;
-  let FinalPrice = fraisProtection + fraisPort + Price;
-
   return (
     <>
       {!completed ? (
@@ -78,15 +84,29 @@ const CheckoutForm = () => {
                   protection et de port inclus).
                 </p>
               </div>
+              {/* <div className="carte"> */}
               <CardElement />
-              <button className="boutonvalider" type="submit">
-                Valider le paiement
-              </button>
+              {/* </div> */}
+              <div className="buton">
+                <button className="boutonvalider" type="submit">
+                  Valider le paiement
+                </button>
+              </div>
             </div>
           </div>
         </form>
       ) : (
-        <span>Paiement effectué !</span>
+        <div className="structure-paiment">
+          <div className="paiment-effectué">Paiement effectué !</div>
+          <button
+            className="boutton-acceuil"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Retour acceuil
+          </button>
+        </div>
       )}
     </>
   );

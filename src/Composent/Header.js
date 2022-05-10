@@ -47,7 +47,7 @@ const Header = ({ token, setUser }) => {
           <div className="connecter">
             {" "}
             <div
-              className="connexion"
+              className="deconnexion"
               onClick={() => {
                 setUser(null);
                 navigate("/");
