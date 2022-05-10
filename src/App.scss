@@ -359,23 +359,74 @@
 
 .formulaire {
   width: 100%;
-  border: 1px solid black;
-  height: auto;
+  padding-top: 5px;
+  height: 800px;
+  background-color: #ebedee;
+
+  .bloc-photo {
+    height: 300px;
+    width: 80%;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: auto;
+    color: grey;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+      margin: 50px;
+      border-color: #0ab1ba;
+    }
+  }
 
   .bloc-offre {
     width: 80%;
-    height: 100%;
-    border: 2px solid pink;
+    height: auto;
+    border-radius: 3px;
     margin: auto;
     margin-top: 20px;
-    height: 120px;
+    height: auto;
+    color: grey;
+    background-color: white;
+
+    .bloc-description {
+      display: flex;
+      font-size: 15px;
+      padding-left: 15px;
+      border-bottom: 1px solid #ebedee;
+      align-items: center;
+      height: auto;
+      justify-content: space-between;
+      background-color: white;
+      input {
+        width: 50%;
+        border: none;
+        background-color: white;
+        border-bottom: 1px solid #ebedee;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+    }
   }
-  .bloc-paiement {
-    display: flex;
-    margin: auto;
-    border: 1px solid black;
-    align-items: center;
-    justify-content: flex-end;
+  .bloc-submit {
     width: 80%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: flex-end;
+    margin: auto;
+    input {
+      height: 35px;
+      width: 100px;
+      margin-top: 10px;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      border: none;
+      background-color: #0ab1ba;
+      color: white;
+    }
   }
 }

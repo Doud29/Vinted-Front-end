@@ -2,7 +2,6 @@ import React from "react";
 
 // Use params permet de recuperer l'id de Home
 import { useParams } from "react-router-dom";
-import Header from "../Composent/Header";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -36,8 +35,6 @@ const Product = () => {
     <h1>En cours de chargement...</h1>
   ) : (
     <div>
-      <Header />
-
       <div className="description-offre">
         <div className="photoproduit">
           <img src={data.product_image.secure_url} alt="" />
