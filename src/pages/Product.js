@@ -3,9 +3,11 @@ import React from "react";
 // Use params permet de recuperer l'id de Home
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 
-const Product = () => {
+const Product = ({ token }) => {
   /* ----------------------------------------------------------------------------- */
   /*-----------------------------------// States //--------------------------------*/
   /* ---------------------------------------------------------------------------- */
@@ -62,9 +64,30 @@ const Product = () => {
             </div>
             <p>{data.owner.account.username}</p>
           </div>
-          <div className="acheter">
-            <span>Acheter</span>
-          </div>
+
+          {token === null ? (
+            <div
+              style={{ opacity: 0.2 }}
+              className="acheter"
+              onClick={() => {
+                alert(
+                  "vous devez vous connecter ou vous inscrire pour accéder au paiement"
+                );
+              }}
+            >
+              <span>Acheter</span>
+            </div>
+          ) : (
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/Payment"
+              state={{ title: data.product_name, price: data.product_price }}
+            >
+              <div className="acheter">
+                <span>Acheter</span>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
 

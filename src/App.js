@@ -5,18 +5,17 @@
 import "./App.scss";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//routes
 import Home from "./pages/Home";
 import Product from "./pages/Product";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
 import Cookies from "js-cookie";
-import { useState } from "react";
-
-// import Login from "./pages/Login";
-
 import Header from "./Composent/Header";
-// import { useState } from "react";
+import Payment from "./pages/Payment";
+//state
+import { useState } from "react";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("userToken") || null);
@@ -54,12 +53,13 @@ function App() {
           {/*  sa props est element qui aura pour composant product */}
           <Route path="/" element={<Home />} />
           {/* la route / me renvoie le composant home */}
-          <Route path="/product/:id" element={<Product />} />
+          <Route path="/product/:id" element={<Product token={token} />} />
           {/* la route / me renvoie le composant Product */}
           {/* ID :  la route /product s'attend à recevoir en params un iD. Cela signifique que la route doit être capable de lui en envoyer un */}
           <Route path="/Signup" element={<Signup setUser={setUser} />} />
           <Route path="/Login" element={<Login setUser={setUser} />} />
           <Route path="/Publish" element={<Publish token={token} />} />
+          <Route path="/Payment" element={<Payment />} />
         </Routes>
       </Router>
     </div>
