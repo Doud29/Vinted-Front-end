@@ -42,7 +42,7 @@ const Home = () => {
               {" "}
               <p>Vends maintenant</p> <br />
             </div>
-            <a href="">Comment ça marche</a>
+            <a href="blabla">Comment ça marche</a>
           </div>
         </div>
       </div>
