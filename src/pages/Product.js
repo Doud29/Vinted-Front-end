@@ -19,7 +19,6 @@ const Product = ({ token }) => {
   /* ---------------------------------------------------------------------------- */
 
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
@@ -30,8 +29,7 @@ const Product = ({ token }) => {
       console.log(response.data);
     };
     fetchData();
-  }, []);
-
+  }, [id]);
   return isLoading ? (
     <h1>En cours de chargement...</h1>
   ) : (
